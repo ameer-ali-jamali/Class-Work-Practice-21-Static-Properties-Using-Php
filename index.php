@@ -1,65 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+Static Properties
+Static properties can be accessed directly without creating an instance of a class. Static properties can be declared by using the static keyword.
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+To access a static property we need to write the class name followed by a double colon (::), and the property name.\
 
-<body>
-  <?php
+Example:
 
-  // Static Properties
-  // Static properties can be accessed directly without creating an instance of a class. Static properties can be declared by using the static keyword. 
-
-  // To access a static property we need to write the class name followed by a double colon (::), and the property name.\
-
-  // Example:
-
-  // class pi {
-  //   public static $value = 3.14;
-  // }
-  // // Getting static property
-  // echo pi::$value;
+<?php
+class piis
+{
+  public static $value = 3.14;
+}
+// Getting static property
+echo pi::$value;
+?>
 
 
-  //    A static method can be accessed from a method in the same class using the self keyword followed by a double colon (::), and the method name.
+A static method can be accessed from a method in the same class using the self keyword followed by a double colon (::), and the method name.
 
-  //    Example
+Example
 
-  // class pi
-  // {
-  //   public static $value = 3.14159;
-  //   public function staticValue()
-  //   {
-  //     return self::$value;
-  //   }
-  // }
-
-  // $pi = new pi();
-  // echo $pi->staticValue();
-
-
-  //    If we need to call a static property from a child class, we can use the parent keyword inside the child class. 
-
-  //  Example:
-
-  class pi
+<?php
+class pii
+{
+  public static $value = 3.14159;
+  public function staticValue()
   {
-    public static $value = 3.14;
+    return self::$value;
   }
-  class x extends pi
-  {
-    public function xStatic()
-    {
-      return parent::$value;
-    }
-  }
-  // Get value of static property directly via child class
-  echo x::$value;
-  ?>
-</body>
+}
 
-</html>
+$pi = new pi();
+echo $pii->staticValue();
+?>
+
+
+If we need to call a static property from a child class, we can use the parent keyword inside the child class.
+
+Example:
+
+<?php
+class pi
+{
+  public static $value = 3.14;
+}
+class x extends pi
+{
+  public function xStatic()
+  {
+    return parent::$value;
+  }
+}
+// Get value of static property directly via child class
+echo x::$value;
